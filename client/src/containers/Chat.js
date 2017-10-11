@@ -81,8 +81,7 @@ class App extends Component {
     }
 
     return (
-      <div id="page-content-wrapper">
-        <div className="container-fluid">
+      <div>
         {
           user.user_data ? 
             <ChatRoom
@@ -104,7 +103,6 @@ class App extends Component {
             />
           : null
         }
-        </div>
       </div>
     );
   }

@@ -59,22 +59,18 @@ class Places extends Component {
   render() {
     const { search_results } = this.props
     return(
-      <div id="page-content-wrapper">
-        <div className="container-fluid">
-          <BootstrapTable
-            data={search_results}
-            striped={true}
-            hover={true}
-            search={ true }
-            options={{onSearchChange: this.SearchGoogle.bind(this) }}
-            // handleSearch={this.SearchGoogle}
-          >
-              <TableHeaderColumn dataField="photos" isKey={true} dataFormat={this.photoUrl.bind(this)}>Photo</TableHeaderColumn>
-              <TableHeaderColumn dataField="name" dataSort={true}>Store</TableHeaderColumn>
-              <TableHeaderColumn dataField="vicinity">Vicinity</TableHeaderColumn>
-          </BootstrapTable>
-        </div>
-      </div>
+      <BootstrapTable
+        data={search_results}
+        striped={true}
+        hover={true}
+        search={ true }
+        options={{onSearchChange: this.SearchGoogle.bind(this) }}
+        // handleSearch={this.SearchGoogle}
+      >
+          <TableHeaderColumn dataField="photos" isKey={true} dataFormat={this.photoUrl.bind(this)}>Photo</TableHeaderColumn>
+          <TableHeaderColumn dataField="name" dataSort={true}>Store</TableHeaderColumn>
+          <TableHeaderColumn dataField="vicinity">Vicinity</TableHeaderColumn>
+      </BootstrapTable>
     )
   }
 }

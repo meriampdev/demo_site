@@ -29,9 +29,13 @@ class Pages extends Component {
     return(
       <div id="wrapper" className={classnames({ toggled })}>
         <SideBar/>
-        <Route path={`${match.url}/dashboard`} component={PageContent}/>
-        <Route path={`${match.url}/places`} component={Places}/>
-        <Route path={`${match.url}/chatty`} component={Chat}/>
+        <div id="page-content-wrapper">
+          <div className="container-fluid">
+            <Route path={`${match.url}/dashboard`} component={PageContent}/>
+            <Route path={`${match.url}/places`} component={Places}/>
+            <Route path={`${match.url}/chatty`} component={Chat}/>
+          </div>
+        </div>
       </div>
     )
   }
