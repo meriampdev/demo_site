@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 import SideBar from '../components/SideBar'
-import PageContent from '../components/PageContent'
+// import PageContent from '../components/PageContent'
 import classnames from 'classnames'
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
 
 class Pages extends Component {
   constructor(props) {
@@ -17,13 +19,30 @@ class Pages extends Component {
 
   render() {
     const { toggled } = this.state
+    const { user, children } = this.props
+    console.log('props', this.props)
     return(
       <div id="wrapper" className={classnames({ toggled })}>
-        <SideBar />
-        <PageContent toggleMenu={this.toggleMenu.bind(this)} />
+        <SideBar
+          UserData = {user.user_data}
+        />
+        { children }
+        {
+        // <PageContent toggleMenu={this.toggleMenu.bind(this)} />
+        }
       </div>
     )
   }
 }
 
-export default Pages
+const mapStateToProps = state => ({
+  user: state.user
+})
+
+const mapDispatchToProps = dispatch => bindActionCreators({
+}, dispatch)
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Pages)

@@ -1,9 +1,41 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React, { Component } from 'react'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 
 import LandingPage from './containers/LandingPage'
-import Pages from './containers/Pages'
+import Places from './containers/Places'
+import Chat from './containers/Chat'
+import PageContent from './components/PageContent'
+
+import SideBar from './components/SideBar'
+// import PageContent from '../components/PageContent'
+import classnames from 'classnames'
+
+
+class Pages extends Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      toggled: true
+    }
+  }
+  toggleMenu() {
+    this.setState({ toggled: !this.state.toggled })
+  }
+
+  render() {
+    const { toggled } = this.state
+    const { match } = this.props
+    return(
+      <div id="wrapper" className={classnames({ toggled })}>
+        <SideBar/>
+        <Route path={`${match.url}/dashboard`} component={PageContent}/>
+        <Route path={`${match.url}/places`} component={Places}/>
+        <Route path={`${match.url}/chatty`} component={Chat}/>
+      </div>
+    )
+  }
+}
 
 export default () => {
   return (
