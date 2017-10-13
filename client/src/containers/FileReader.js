@@ -3,6 +3,7 @@ import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import ReactFileReader from 'react-file-reader'
+import Filter from '../components/Filter'
 import {
   Search
 } from '../redux/action/user'
@@ -61,20 +62,25 @@ class Places extends Component {
         </ReactFileReader>
         {
           columns.length > 0 && tableData.length > 0 ?
-            <BootstrapTable
-              data={tableData}
-              striped={true}
-              hover={true}
-              search={ true }
-              // options={{onSearchChange: this.SearchGoogle.bind(this) }}
-              // handleSearch={this.SearchGoogle}
-            >
-              {
-                columns.map((col)=>{
-                  return <TableHeaderColumn isKey={col === 'id'} key={col} dataField={col} dataSort={true}>{col}</TableHeaderColumn>
-                })
-              }
-            </BootstrapTable>
+            <div>
+              <Filter />
+              <div id="page-content">
+                <BootstrapTable
+                  data={tableData}
+                  striped={true}
+                  hover={true}
+                  search={ true }
+                  // options={{onSearchChange: this.SearchGoogle.bind(this) }}
+                  // handleSearch={this.SearchGoogle}
+                >
+                  {
+                    columns.map((col)=>{
+                      return <TableHeaderColumn isKey={col === 'id'} key={col} dataField={col} dataSort={true}>{col}</TableHeaderColumn>
+                    })
+                  }
+                </BootstrapTable>
+              </div>
+            </div>
           : null
         }
       </div>

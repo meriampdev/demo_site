@@ -20,6 +20,7 @@ class Pages extends Component {
       toggled: true
     }
   }
+  
   toggleMenu() {
     this.setState({ toggled: !this.state.toggled })
   }
