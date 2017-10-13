@@ -42,6 +42,9 @@ class SideBar extends Component {
             <Link to='/portal/chatty'>Chat App</Link>
           </li>
           <li>
+            <Link to='/portal/filereader'>CSV File Reader</Link>
+          </li>
+          <li>
             <Link to='/portal/about'>About</Link>
           </li>
           <li>

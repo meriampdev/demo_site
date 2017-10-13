@@ -5,6 +5,7 @@ import LandingPage from './containers/LandingPage'
 import Places from './containers/Places'
 import Chat from './containers/Chat'
 import PageContent from './components/PageContent'
+import FileReader from './containers/FileReader'
 
 import SideBar from './components/SideBar'
 // import PageContent from '../components/PageContent'
@@ -34,6 +35,7 @@ class Pages extends Component {
             <Route path={`${match.url}/dashboard`} component={PageContent}/>
             <Route path={`${match.url}/places`} component={Places}/>
             <Route path={`${match.url}/chatty`} component={Chat}/>
+            <Route path={`${match.url}/filereader`} component={FileReader}/>
           </div>
         </div>
       </div>
